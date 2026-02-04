@@ -1,0 +1,265 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    /* Darker overlay */
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+@media (min-width: 600px) {
+    .overlay {
+        align-items: center;
+    }
+}
+
+.modal {
+    background: #141414;
+    /* Dark surface */
+    border: 1px solid #27272A;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 -10px 50px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-main);
+}
+
+@media (min-width: 600px) {
+    .modal {
+        border-radius: 24px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.scrollArea {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 0.5rem;
+    margin-right: -0.5rem;
+    /* Balance padding */
+}
+
+/* Custom Scrollbar */
+.scrollArea::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scrollArea::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 2px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #27272A;
+    flex-shrink: 0;
+}
+
+.dateTitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: var(--text-main);
+}
+
+.closeBtn {
+    background: #27272A;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.closeBtn:hover {
+    background: #3F3F46;
+    color: white;
+}
+
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+    font-size: 0.85rem;
+    color: var(--primary);
+    /* Blue accent */
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Pills */
+.pillContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.pill {
+    background: #18181B;
+    border: 1px solid #27272A;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.pill:hover {
+    border-color: var(--primary);
+    color: white;
+}
+
+.activePill {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Detail Card */
+.detailCard {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid #27272A;
+}
+
+.detailHeader {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #27272A;
+}
+
+.subPill {
+    background: #27272A;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #A1A1AA;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.activeSubPill {
+    background: var(--accent);
+    /* Emerald for completion */
+    color: #000;
+    font-weight: 600;
+}
+
+.miniInput {
+    background: #000;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border: 1px solid #333;
+}
+
+.addBtn {
+    background: #27272A;
+    border: 1px solid #333;
+    width: 44px;
+    border-radius: 8px;
+    color: white;
+}
+
+.summaryTag {
+    font-size: 0.8rem;
+    color: var(--accent);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 500;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #27272A;
+    flex-shrink: 0;
+}
+
+.cancelBtn {
+    background: transparent;
+    color: var(--text-muted);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+}
+
+.cancelBtn:hover {
+    border-color: #555;
+    color: white;
+}
+
+.saveBtn {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 2;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

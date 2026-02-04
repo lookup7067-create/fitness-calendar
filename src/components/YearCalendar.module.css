@@ -1,0 +1,172 @@
+.calendarContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+/* Mobile Scroll Snap for clean month-by-month view */
+@media (max-width: 600px) {
+    .calendarContainer {
+        scroll-snap-type: y mandatory;
+        height: 75vh;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+        /* Space for scrollbar */
+    }
+
+    .calendarContainer::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .calendarContainer::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 2px;
+    }
+
+    .monthCard {
+        scroll-snap-align: start;
+        min-height: 100%;
+        /* Fill view */
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.monthCard {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle gradient accent for premium feel */
+.monthCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.5;
+}
+
+.monthTitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    /* Thin modern font */
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.daysGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+}
+
+.dayLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.dayCell {
+    aspect-ratio: 0.85;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #52525B;
+    /* Darker muted text */
+    position: relative;
+    background: #18181B;
+    /* Very dark grey */
+    border: 1px solid transparent;
+}
+
+.dayCell:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+    color: var(--text-main);
+}
+
+.dayNumber {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 6px;
+    font-variant-numeric: tabular-nums;
+}
+
+.timeGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+}
+
+.timeLabel {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.8;
+}
+
+.currentDay {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.hasData {
+    background: #1E293B;
+    /* Slate 800 */
+    border: 1px solid #334155;
+}
+
+.hasData:hover {
+    background: #334155;
+}
+
+.hasData .dayNumber {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.hasData .timeLabel {
+    color: var(--primary);
+    /* Blue text for times */
+}
+
+/* Indicators */
+.dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 2px;
+}
